@@ -1,36 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
-    <script type='importmap'>
-      {
-        "imports": {
-          "@fullcalendar/core": "https://cdn.skypack.dev/@fullcalendar/core@6.1.8",
-          "@fullcalendar/daygrid": "https://cdn.skypack.dev/@fullcalendar/daygrid@6.1.8"
-        }
-      }
-    </script>
-    <script type='module'>
-      import { Calendar } from '@fullcalendar/core'
-      import dayGridPlugin from '@fullcalendar/daygrid'
-      import multiMonthPlugin from '@fullcalendar/multimonth'
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script>
 
       document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar')
-        const calendar = new Calendar(calendarEl, {
-          plugins: [dayGridPlugin,multiMonthPlugin],
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'multiMonthYear',
-          multiMonthMaxColumns: 1, // force a single column 
-          headerToolbar: {
-            left: 'prev,next today',
-            center: 'Are We Busy?',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-          }
-        })
-        calendar.render()
-      })
+          multiMonthMaxColumns: 1 // force a single column
+        });
+        calendar.render();
+      });
+
     </script>
   </head>
   <body>
+    <h1>Are We Busy?</h1>
     <div id='calendar'></div>
   </body>
 </html>
